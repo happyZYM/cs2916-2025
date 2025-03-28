@@ -1,16 +1,16 @@
 set -x
 
 export NCCL_CUMEM_ENABLE=0
-export WANDB_MODE=
+export WANDB_MODE=online
 export WANDB_DIR=
-export WANDB_KEY=
+export WANDB_KEY=$WANDB_KEY
 
 BS=256
 EP=3
 LR=1e-5
 
 TRIAL_NAME=sft_cot
-MODEL_PATH=Qwen/Qwen2.5-Math-1.5B
+MODEL_PATH=/mnt/data/Qwen2.5-Math-1.5B
 SAVE_PATH=../ckpts/cot_sft
 DATA_PATH=./data/train/math3k_cot.jsonl
 
@@ -42,10 +42,11 @@ src.cli.train_sft \
    --gradient_checkpointing \
    --packing_samples \
    --use_wandb $WANDB_KEY \
-   --wandb_project sjtu_cs2916_baseline \
+   --wandb_org $WANDB_ORG \
+   --wandb_project cs2916-2025 \
    --wandb_group sft \
    --wandb_run_name $TRIAL_NAME 
 EOF
 
 torchrun --nproc_per_node 4 --nnodes 1 --node_rank 0 \
-    --master_addr "127.0.0.1" --master_port 12345 -m ${training_commands}
+    --master_addr "127.0.0.1" --master_port 10010 -m ${training_commands}
