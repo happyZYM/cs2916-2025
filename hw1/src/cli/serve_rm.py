@@ -155,6 +155,11 @@ class RuleBasedRMProxy:
                 # 2.用prompt2answer获取prompt对应的groundtruth
                 # 3.用math_equal函数评估response是否正确，并据此给出reward
                 ######################
+                if prompt not in self.prompt2answer:
+                    raise Exception("Prompt not in prompt2answer")
+                correct_answer = self.prompt2answer[prompt]
+                is_correct = math_equal(correct_answer, response)
+                score = (1.0 if is_correct else 0.0) * 100
                 return score
                 
         except TimeoutException:

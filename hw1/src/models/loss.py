@@ -74,6 +74,18 @@ class PolicyLoss(nn.Module):
         # 根据deepseekmath, deepseek r1中的paper，实现loss函数
         # 不需要实现klloss
         ######################
+        ratio = torch.exp(log_probs - old_log_probs)
+        unclipped_objective = ratio * advantages
+        clipped_ratio = torch.clamp(ratio, 1.0 - self.clip_eps, 1.0 + self.clip_eps)
+        clipped_objective = clipped_ratio * advantages
+        objective = torch.min(unclipped_objective, clipped_objective)
+        if action_mask is not None:
+            objective = objective * action_mask
+            normalizer = action_mask.sum()
+            normalizer = torch.maximum(normalizer, torch.tensor(1.0, device=normalizer.device))
+        else:
+            normalizer = torch.tensor(objective.numel(), device=objective.device)
+        loss = -torch.sum(objective) / normalizer
         return loss
 
 

@@ -9,9 +9,9 @@ BS=256
 EP=3
 LR=1e-5
 
-TRIAL_NAME=sft_cot
+TRIAL_NAME=sft_cot6
 MODEL_PATH=/mnt/data/Qwen2.5-Math-1.5B
-SAVE_PATH=../ckpts/cot_sft
+SAVE_PATH=../ckpts/$TRIAL_NAME
 DATA_PATH=./data/train/math3k_cot.jsonl
 
 read -r -d '' training_commands <<EOF

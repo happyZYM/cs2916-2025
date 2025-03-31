@@ -1,12 +1,13 @@
 export HOST_IP=$MASTER_ADDR
 export NCCL_CUMEM_ENABLE=0
 export TOKENIZERS_PARALLELISM=False
+export WANDB_KEY=$WANDB_KEY
 
 
 # wandb setting
-export WANDB_MODE=offline or online
+export WANDB_MODE=online
 export WANDB_DIR=
-pkill -f ray
+ray stop
 
 
 ROLLOUT_BS=64
@@ -20,15 +21,17 @@ LR=1e-6
 EVAL_STEPS=10
 MAX_GEN_LEN=1024
 
-TRIAL_NAME=grpo_baseline
+TRIAL_NAME=grpo_test1
 
-DATA_PATH=./data/train/math3k_rl_prompt
+BASE_DIR=/mnt/data/zhuangyumin/cs2916-2025/hw1
+
+DATA_PATH=${BASE_DIR}/data/train/math3k_rl_prompt
 # model path
-POLICY_MODEL_PATH=Qwen/Qwen2.5-Math-1.5B
+POLICY_MODEL_PATH=/mnt/data/Qwen2.5-Math-1.5B
 
 
-SAVE_PATH=../ckpts/${TRIAL_NAME}
-SAMPLES_SAVE_PATH=./data/output/rl/${TRIAL_NAME}
+SAVE_PATH=${BASE_DIR}/../ckpts/${TRIAL_NAME}
+SAMPLES_SAVE_PATH=${BASE_DIR}/data/output/rl/${TRIAL_NAME}
 
 # start rm
 python -m src.cli.serve_rm \
@@ -46,7 +49,7 @@ ray start --head  --port=$RAY_MASTER_PORT --dashboard-host=127.0.0.1 --dashboard
 sleep 10s
 # replace working_dir with your own working dir
 RAY_ADDRESS="http://127.0.0.1:$RAY_DASHBOARD_PORT" ray job submit --address="http://127.0.0.1:12345" \
-    --runtime-env-json='{"working_dir": "/inspire/hdd/ws-950e6aa1-e29e-4266-bd8a-942fc09bb560/embodied-intelligence/liupengfei-24025/xfli/o1/reference/cs2916/homework1"}' \
+    --runtime-env-json="{\"working_dir\": \"${BASE_DIR}\", \"excludes\": [\"/data/\"]}" \
     -- python3 -m src.cli.train_ppo_ray \
     --ref_num_nodes 1 \
     --ref_num_gpus_per_node 1 \
@@ -78,7 +81,7 @@ RAY_ADDRESS="http://127.0.0.1:$RAY_DASHBOARD_PORT" ray job submit --address="htt
     --lr_warmup_steps 10 \
     --init_kl_coef $KL_COEF \
     --prompt_data $DATA_PATH \
-    --test_path ./data/eval/RL.jsonl \
+    --test_path ${BASE_DIR}/data/eval/RL.jsonl \
     --input_key context_messages \
     --apply_chat_template \
     --max_samples 100000 \
@@ -89,8 +92,9 @@ RAY_ADDRESS="http://127.0.0.1:$RAY_DASHBOARD_PORT" ray job submit --address="htt
     --vllm_sync_backend nccl \
     --gradient_checkpointing \
     --temperature $TEMPERATURE \
-    --use_wandb "WANDB TOKEN" \
-    --wandb_project "WANDB PROJECT" \
+    --use_wandb $WANDB_KEY \
+    --wandb_org $WANDB_ORG \
+    --wandb_project cs2916-2025 \
     --wandb_group rl.grpo \
     --wandb_run_name $TRIAL_NAME &
 wait   
