@@ -11,7 +11,7 @@ from transformers import AutoTokenizer
 
 
 from transformers import AutoTokenizer
-tokenizer=AutoTokenizer.from_pretrained("/inspire/hdd/ws-950e6aa1-e29e-4266-bd8a-942fc09bb560/embodied-intelligence/liupengfei-24025/hyzou/ckpt/huggingface/Qwen/Qwen2.5-Math-1.5B")
+tokenizer=AutoTokenizer.from_pretrained("/mnt/data/Qwen2.5-Math-1.5B")
 def to_messages(line):
     messages=[
         {"role": "system", "content": "Please reason step by step, and put your final answer within \\boxed{}."},
