@@ -18,7 +18,11 @@ def to_messages(line):
         {"role": "user", "content": line["prompt"]},
     ]
     text=line["prompt"]
-    return text, messages, line['answer']
+    if 'meta' in line and 'difficulty' in line['meta']:
+        difficulty = line['meta']['difficulty']
+    else:
+        difficulty = 'unknown'
+    return text, messages, line['answer'], difficulty
 
 
 def save_dataset(dataset, save_dir):
@@ -40,9 +44,10 @@ def main(args):
     save_data=[]
     lengths=[]
     for line in data:
-        text, messages, answer=to_messages(line)
+        text, messages, answer, difficulty=to_messages(line)
         s={"dataset": "rl", "context": text, "context_messages": messages, "answer": str(answer), "source": "math.3k"}
-        if len(tokenizer.encode(text))>=310: continue
+        if difficulty == "easy": continue
+        # if len(tokenizer.encode(text))>=310: continue
         save_data.append(s)
     
     
@@ -52,8 +57,9 @@ def main(args):
             evaldata.append(line)
     eval_save_data=[]
     for line in evaldata:
-        text, messages, answer=to_messages(line)
-        if len(tokenizer.encode(text))>=310: continue
+        text, messages, answer, difficulty=to_messages(line)
+        if difficulty == "easy": continue
+        # if len(tokenizer.encode(text))>=310: continue
         s={"dataset": "rl", "context": text, "context_messages": messages, "answer": str(answer).strip(), "source": line['source']}
         eval_save_data.append(s)
     
@@ -81,7 +87,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
-    parser.add_argument("--input_path", type=str, default="/inspire/hdd/ws-950e6aa1-e29e-4266-bd8a-942fc09bb560/embodied-intelligence/liupengfei-24025/xfli/o1/reference/cs2916/homework1/data/train/math3k_rl_prompt.jsonl")
-    parser.add_argument("--output_path", type=str, default="/inspire/hdd/ws-950e6aa1-e29e-4266-bd8a-942fc09bb560/embodied-intelligence/liupengfei-24025/xfli/o1/reference/cs2916/homework1/data/train/math3k_rl_prompt")
+    parser.add_argument("--input_path", type=str, default="./data/train/math3k_rl_prompt.jsonl")
+    parser.add_argument("--output_path", type=str, default="./data/train/math3k_rl_prompt2")
     args=parser.parse_args()
     main(args)

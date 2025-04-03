@@ -165,10 +165,10 @@ class RuleBasedRMProxy:
                 repetition_happens = self.repeat_pattern.search(response)
                 if not repetition_happens:
                     response_len = len(self.tokenizer.encode(response))
-                    L = 620
+                    L = 600
                     if response_len >= L:
                         a = (response_len - L) / 600
-                        length_bonus = 10 * (1 - np.exp(-a*2.3))
+                        length_bonus = 10 * (1 - np.exp(-a))
                     else:
                         length_bonus = 0
                     bonus += length_bonus
