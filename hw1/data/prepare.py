@@ -57,9 +57,8 @@ def main(args):
             evaldata.append(line)
     eval_save_data=[]
     for line in evaldata:
-        text, messages, answer, difficulty=to_messages(line)
-        if difficulty == "easy": continue
-        # if len(tokenizer.encode(text))>=310: continue
+        text, messages, answer, _=to_messages(line)
+        if len(tokenizer.encode(text))>=310: continue
         s={"dataset": "rl", "context": text, "context_messages": messages, "answer": str(answer).strip(), "source": line['source']}
         eval_save_data.append(s)
     

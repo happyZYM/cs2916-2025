@@ -39,7 +39,7 @@ python -m src.cli.serve_rm \
     --tokenizer_path $POLICY_MODEL_PATH \
     --max_gen_len $MAX_GEN_LEN \
     --data_path $DATA_PATH \
-    --port 5000 &
+    --port 10101 &
 
 sleep 10s
 RAY_MASTER_PORT=6379
@@ -61,7 +61,7 @@ RAY_ADDRESS="http://127.0.0.1:$RAY_DASHBOARD_PORT" ray job submit --address="htt
     --save_steps 10 \
     --pretrain $POLICY_MODEL_PATH \
     --ref_pretrain $POLICY_MODEL_PATH \
-    --remote_rm_url http://localhost:5000/get_reward \
+    --remote_rm_url http://localhost:10101/get_reward \
     --save_path $SAVE_PATH \
     --ckpt_path $SAVE_PATH \
     --samples_save_path $SAMPLES_SAVE_PATH \
