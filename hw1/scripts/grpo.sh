@@ -25,7 +25,7 @@ TRIAL_NAME=grpo_quality_round2
 
 BASE_DIR=/mnt/data/zhuangyumin/cs2916-2025/hw1
 
-DATA_PATH=${BASE_DIR}/data/train/math3k_rl_prompt2
+DATA_PATH=${BASE_DIR}/data/train/math3k_rl_prompt
 # model path
 POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/grpo_quality_test1/global_step260_hf
 

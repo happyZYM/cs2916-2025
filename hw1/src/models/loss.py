@@ -61,6 +61,7 @@ class PolicyLoss(nn.Module):
     def __init__(self, clip_eps: float = 0.2) -> None:
         super().__init__()
         self.clip_eps = clip_eps
+        self.clip_high_low_divergence_ratio = 1.4
 
     def forward(
         self,
@@ -76,7 +77,7 @@ class PolicyLoss(nn.Module):
         ######################
         ratio = torch.exp(log_probs - old_log_probs)
         unclipped_objective = ratio * advantages
-        clipped_ratio = torch.clamp(ratio, 1.0 - self.clip_eps, 1.0 + self.clip_eps)
+        clipped_ratio = torch.clamp(ratio, 1.0 - self.clip_eps, 1.0 + self.clip_eps * self.clip_high_low_divergence_ratio)
         clipped_objective = clipped_ratio * advantages
         objective = torch.min(unclipped_objective, clipped_objective)
         if action_mask is not None:

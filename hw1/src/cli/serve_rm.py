@@ -141,7 +141,7 @@ class RuleBasedRMProxy:
                     prompt=query.split("<|im_end|>\n<|im_start|>user\n")[-1].split("<|im_end|>\n<|im_start|>assistant\n")[0].strip()
                     response=query.split("<|im_end|>\n<|im_start|>assistant\n")[-1]
                     if "<|im_end|>" not in response and "<|endoftext|>" not in response:
-                        return -10
+                        return -1
                     response=query.split("<|im_end|>\n<|im_start|>assistant\n")[-1].split("<|im_end|>")[0].split("<|endoftext|>")[0].strip()
                 elif args.template_type=="deepseek":
                     prompt = query.split("<｜User｜>")[-1].split("<｜Assistant｜>")[0].strip()
@@ -160,23 +160,8 @@ class RuleBasedRMProxy:
                     raise Exception("Prompt not in prompt2answer")
                 correct_answer = self.prompt2answer[prompt]
                 is_correct = math_equal(correct_answer, response)
-                basic_score = (100 if is_correct else 0)
-                bonus = 0
-                repetition_happens = self.repeat_pattern.search(response)
-                if not repetition_happens:
-                    response_len = len(self.tokenizer.encode(response))
-                    L = 600
-                    if response_len >= L:
-                        a = (response_len - L) / 600
-                        length_bonus = 10 * (1 - np.exp(-a))
-                    else:
-                        length_bonus = 0
-                    bonus += length_bonus
-                have_english = self.english_pattern.search(response)
-                have_chinese = self.chinese_pattern.search(response)
-                if not (have_english and have_chinese):
-                    bonus += 5
-                score = basic_score + bonus
+                basic_score = (1 if is_correct else -1)
+                score = basic_score
                 return score
                 
         except TimeoutException:
