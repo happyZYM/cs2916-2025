@@ -5,18 +5,18 @@ export WANDB_MODE=online
 export WANDB_DIR=
 export WANDB_KEY=$WANDB_KEY
 
-BS=256
-EP=5
-LR=1e-5
+BS=128
+EP=6
+LR=2e-5
 
-TRIAL_NAME=sft_longcot1
+TRIAL_NAME=sft_longcot5
 MODEL_PATH=/mnt/data/Qwen2.5-Math-1.5B
 SAVE_PATH=../ckpts/$TRIAL_NAME
 DATA_PATH=./data/train/math3k_longcot.jsonl
 
 read -r -d '' training_commands <<EOF
 src.cli.train_sft \
-   --max_len 16384 \
+   --max_len 32768 \
    --dataset $DATA_PATH \
    --input_key prompt \
    --output_key solution \

@@ -21,13 +21,13 @@ LR=1e-6
 EVAL_STEPS=10
 MAX_GEN_LEN=1024
 
-TRIAL_NAME=grpo_quality_round2
+TRIAL_NAME=grpo_quality_l4
 
 BASE_DIR=/mnt/data/zhuangyumin/cs2916-2025/hw1
 
 DATA_PATH=${BASE_DIR}/data/train/math3k_rl_prompt
 # model path
-POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/grpo_quality_test1/global_step260_hf
+POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/sft_longcot5
 
 
 SAVE_PATH=${BASE_DIR}/../ckpts/${TRIAL_NAME}
