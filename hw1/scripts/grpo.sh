@@ -3,6 +3,11 @@ export NCCL_CUMEM_ENABLE=0
 export TOKENIZERS_PARALLELISM=False
 export WANDB_KEY=$WANDB_KEY
 
+export NCCL_DEBUG=INFO
+export NCCL_IB_DISABLE=1
+export NCCL_P2P_DISABLE=1
+
+
 
 # wandb setting
 export WANDB_MODE=online
@@ -21,13 +26,13 @@ LR=2e-6
 EVAL_STEPS=10
 MAX_GEN_LEN=1280
 
-TRIAL_NAME=grpo_quality_l7
+TRIAL_NAME=grpo_quality_l8
 
-BASE_DIR=/mnt/data/zhuangyumin/cs2916-2025/hw1
+BASE_DIR=/workspace/cs2916-2025/hw1
 
 DATA_PATH=${BASE_DIR}/data/train/math3k_rl_prompt
 # model path
-POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/grpo_quality_l6/global_step70_hf
+POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/grpo_quality_l7/global_step450_hf
 
 
 SAVE_PATH=${BASE_DIR}/../ckpts/${TRIAL_NAME}
@@ -44,7 +49,7 @@ python -m src.cli.serve_rm \
 sleep 10s
 RAY_MASTER_PORT=6379
 RAY_DASHBOARD_PORT=8265
-ray start --head  --port=$RAY_MASTER_PORT --dashboard-host=127.0.0.1 --dashboard-port=$RAY_DASHBOARD_PORT --num-gpus 4
+ray start --head  --port=$RAY_MASTER_PORT --dashboard-host=0.0.0.0 --dashboard-port=$RAY_DASHBOARD_PORT --num-gpus 4
 
 sleep 10s
 # replace working_dir with your own working dir
