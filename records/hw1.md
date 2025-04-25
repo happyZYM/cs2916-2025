@@ -1,4 +1,8 @@
 # SFT
+## short cot
+
+## long cot
+
 
 # RL
 
@@ -25,3 +29,6 @@
 训练日志：
 - round1：<https://wandb.ai/zymx/cs2916-2025/runs/4zu1r8tm>，从上一模型得到模型`grpo_quality_test1/global_step260_hf`
 - round2: 从上一模型使用Clip-Higher得到`grpo_quality_round2/global_step110_hf`
+
+# RL2
+longcot5 -> grpo_quality_l6/global_step70_hf -> grpo_quality_l7/global_step450_hf

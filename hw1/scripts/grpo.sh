@@ -17,17 +17,17 @@ NUM_EPISODES=10
 KL_COEF=0.01
 BS=256
 EP=1
-LR=1e-6
+LR=2e-6
 EVAL_STEPS=10
-MAX_GEN_LEN=1024
+MAX_GEN_LEN=1280
 
-TRIAL_NAME=grpo_quality_l4
+TRIAL_NAME=grpo_quality_l7
 
 BASE_DIR=/mnt/data/zhuangyumin/cs2916-2025/hw1
 
 DATA_PATH=${BASE_DIR}/data/train/math3k_rl_prompt
 # model path
-POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/sft_longcot5
+POLICY_MODEL_PATH=${BASE_DIR}/../ckpts/grpo_quality_l6/global_step70_hf
 
 
 SAVE_PATH=${BASE_DIR}/../ckpts/${TRIAL_NAME}

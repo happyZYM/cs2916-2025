@@ -141,7 +141,7 @@ class RuleBasedRMProxy:
                     prompt=query.split("<|im_end|>\n<|im_start|>user\n")[-1].split("<|im_end|>\n<|im_start|>assistant\n")[0].strip()
                     response=query.split("<|im_end|>\n<|im_start|>assistant\n")[-1]
                     if "<|im_end|>" not in response and "<|endoftext|>" not in response:
-                        return -1.0
+                        return -10.0
                     response=query.split("<|im_end|>\n<|im_start|>assistant\n")[-1].split("<|im_end|>")[0].split("<|endoftext|>")[0].strip()
                 elif args.template_type=="deepseek":
                     prompt = query.split("<｜User｜>")[-1].split("<｜Assistant｜>")[0].strip()
@@ -160,7 +160,7 @@ class RuleBasedRMProxy:
                     raise Exception("Prompt not in prompt2answer")
                 correct_answer = self.prompt2answer[prompt]
                 is_correct = math_equal(correct_answer, response)
-                basic_score = (1.0 if is_correct else -1.0)
+                basic_score = (100.0 if is_correct else 0.0)
                 score = basic_score
                 return score
                 
