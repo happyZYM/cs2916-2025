@@ -70,3 +70,6 @@ OlympiadBench acc: 0.246
 训练日志：
 - round1：<https://wandb.ai/zymx/cs2916-2025/runs/4zu1r8tm>，从上一模型得到模型`grpo_quality_test1/global_step260_hf`
 - round2: <https://wandb.ai/zymx/cs2916-2025/runs/56h3izw8>，从上一模型使用Clip-Higher得到`grpo_quality_round2/global_step110_hf`
+
+---
+详细报告及模型文件下载见[report.pdf](report/report.pdf)
