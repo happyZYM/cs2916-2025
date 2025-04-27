@@ -5,11 +5,11 @@ export WANDB_MODE=online
 export WANDB_DIR=
 export WANDB_KEY=$WANDB_KEY
 
-BS=256
+BS=1024
 EP=6
 LR=2e-5
 
-TRIAL_NAME=sft_shortcot2
+TRIAL_NAME=sft_shortcot3
 MODEL_PATH=/mnt/data/Qwen2.5-Math-1.5B
 SAVE_PATH=../ckpts/$TRIAL_NAME
 DATA_PATH=./data/train/math3k_cot.jsonl

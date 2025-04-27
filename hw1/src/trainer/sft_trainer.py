@@ -105,6 +105,9 @@ class SFTTrainer(ABC):
             self.save_after_every_epoch = save_after_every_epoch
             self.save_after_every_epoch_path = save_after_every_epoch_path
             os.makedirs(self.save_after_every_epoch_path, exist_ok=True)
+        else:
+            self.save_after_every_epoch = False
+            self.save_after_every_epoch_path = None
 
     def fit(self, args, consumed_samples=0, num_update_steps_per_epoch=None):
         # get eval and save steps
