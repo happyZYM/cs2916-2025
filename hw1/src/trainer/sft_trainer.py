@@ -44,6 +44,8 @@ class SFTTrainer(ABC):
         tokenizer=None,
         save_hf_ckpt: bool = False,
         disable_ds_ckpt: bool = False,
+        save_after_every_epoch: bool = False,
+        save_after_every_epoch_path: str = None,
     ) -> None:
         super().__init__()
         self.strategy = strategy
@@ -99,6 +101,10 @@ class SFTTrainer(ABC):
             os.makedirs(self.strategy.args.use_tensorboard, exist_ok=True)
             log_dir = os.path.join(self.strategy.args.use_tensorboard, strategy.args.wandb_run_name)
             self._tensorboard = SummaryWriter(log_dir=log_dir)
+        if save_after_every_epoch:
+            self.save_after_every_epoch = save_after_every_epoch
+            self.save_after_every_epoch_path = save_after_every_epoch_path
+            os.makedirs(self.save_after_every_epoch_path, exist_ok=True)
 
     def fit(self, args, consumed_samples=0, num_update_steps_per_epoch=None):
         # get eval and save steps
@@ -201,6 +207,12 @@ class SFTTrainer(ABC):
                 step += 1
 
             epoch_bar.update()
+            if self.save_after_every_epoch:
+                current_save_path = os.path.join(self.save_after_every_epoch_path, f"epoch_{epoch+1}")
+                os.makedirs(current_save_path, exist_ok=True)
+                print(f"Saving model of epoch {epoch+1} to {current_save_path}")
+                self.strategy.save_model(self.model, self.tokenizer, current_save_path)
+                print(f"Model saved to {current_save_path}")
 
         if self._wandb is not None and self.strategy.is_rank_0():
             self._wandb.finish()
