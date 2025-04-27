@@ -2,3 +2,10 @@ __pycache__/
 wandb/
 /ckpts
 /hw1/data/output
+report/report.aux
+report/report.bcf
+report/report.log
+report/report.out
+report/report.run.xml
+report/report.synctex.gz
+report/report.toc
