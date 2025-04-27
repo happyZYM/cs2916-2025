@@ -1,239 +1,34 @@
-@inreference{-2022-BorweinAlgorithm,
-  title = {Borwein's Algorithm},
-  booktitle = {Wikipedia},
-  date = {2022-10-11T02:23:24Z},
-  url = {https://en.wikipedia.org/w/index.php?title=Borwein%27s_algorithm&oldid=1115360750},
-  urldate = {2024-01-10},
-  abstract = {In mathematics, Borwein's algorithm is an algorithm devised by Jonathan and Peter Borwein to calculate the value of 1/{$\pi$}. They devised several other algorithms. They published the book Pi and the AGM -- A Study in Analytic Number Theory and Computational Complexity.},
-  langid = {english},
-  annotation = {Page Version ID: 1115360750},
-  file = {C:\Users\happyZYM\Zotero\storage\QCUENXQD\Borwein's_algorithm.html}
+@online{li_LIMRLessMore_2025,
+  title = {{{LIMR}}: {{Less}} Is {{More}} for {{RL Scaling}}},
+  shorttitle = {{{LIMR}}},
+  author = {Li, Xuefeng and Zou, Haoyang and Liu, Pengfei},
+  date = {2025-02-17},
+  eprint = {2502.11886},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2502.11886},
+  url = {http://arxiv.org/abs/2502.11886},
+  urldate = {2025-04-10},
+  abstract = {In this paper, we ask: what truly determines the effectiveness of RL training data for enhancing language models' reasoning capabilities? While recent advances like o1, Deepseek R1, and Kimi1.5 demonstrate RL's potential, the lack of transparency about training data requirements has hindered systematic progress. Starting directly from base models without distillation, we challenge the assumption that scaling up RL training data inherently improves performance. we demonstrate that a strategically selected subset of just 1,389 samples can outperform the full 8,523-sample dataset. We introduce Learning Impact Measurement (LIM), an automated method to evaluate and prioritize training samples based on their alignment with model learning trajectories, enabling efficient resource utilization and scalable implementation. Our method achieves comparable or even superior performance using only 1,389 samples versus the full 8,523 samples dataset. Notably, while recent data-efficient approaches (e.g., LIMO and s1) show promise with 32B-scale models, we find it significantly underperforms at 7B-scale through supervised fine-tuning (SFT). In contrast, our RL-based LIMR achieves 16.7\% higher accuracy on AIME24 and outperforms LIMO and s1 by 13.0\% and 22.2\% on MATH500. These results fundamentally reshape our understanding of RL scaling in LLMs, demonstrating that precise sample selection, rather than data scale, may be the key to unlocking enhanced reasoning capabilities. For reproducible research and future innovation, we are open-sourcing LIMR, including implementation of LIM, training and evaluation code, curated datasets, and trained models at https://github.com/GAIR-NLP/LIMR.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/home/zym/Zotero/storage/WU6AVSL7/Li 等 - 2025 - LIMR Less is More for RL Scaling.pdf;/home/zym/Zotero/storage/Q4ZDHX8M/2502.html}
 }
 
-@online{aycock-2013-ProvingRamanujanFormulas,
-  title = {On Proving Some of {{Ramanujan}}'s Formulas for \$\textbackslash frac\{1\}\{\textbackslash pi\}\$ with an Elementary Method},
-  author = {Aycock, Alexander},
-  date = {2013-09-04},
-  eprint = {1309.1140},
-  eprinttype = {arxiv},
-  eprintclass = {math},
-  doi = {10.48550/arXiv.1309.1140},
-  url = {http://arxiv.org/abs/1309.1140},
-  urldate = {2024-01-09},
-  abstract = {In this paper we want to prove some formulas listed by S. Ramanujan in his paper "Modular equations and approximations to \$\textbackslash pi\$" \textbackslash cite\{24\} with an elementary method.},
-  pubstate = {preprint},
-  keywords = {Mathematics - Number Theory},
-  file = {C\:\\Users\\happyZYM\\Zotero\\storage\\9WV7RN2J\\Aycock - 2013 - On proving some of Ramanujan's formulas for $frac.pdf;C\:\\Users\\happyZYM\\Zotero\\storage\\LM4EAR6F\\1309.html}
-}
-
-@book{beckmann-1971-HistoryPiPi,
-  title = {A History of [Pi] (Pi)},
-  author = {Beckmann, Petr},
-  namea = {{Internet Archive}},
-  nameatype = {collaborator},
-  date = {1971},
-  publisher = {New York : St. Martin's Press},
-  url = {http://archive.org/details/historyofpipi0000beck_g8t1},
-  urldate = {2024-01-10},
-  abstract = {200 p. : 21 cm; The history of pi, says the author, though a small part of the history of mathematics, is nevertheless a mirror of the history of man. Petr Beckmann holds up this mirror, giving the background of the times when pi made progress and also when it did not, because science was being stifled by militarism or religious fanaticism. The mathematical level of this book is flexible, and there is plenty for readers of all ages and interests; Includes bibliographical references (p. 193-195) and index; "Gift of Edward Ousselin"--Bookplate},
-  isbn = {978-0-312-38185-1},
-  langid = {english},
-  pagetotal = {214},
-  keywords = {Pi}
-}
-
-@online{benlynn-2000-PiRamanujanFormula,
-  title = {Pi - {{Ramanujan}}'s {{Formula}} for {{Pi}}},
-  author = {{Ben Lynn}},
-  date = {2000},
-  url = {https://crypto.stanford.edu/pbc/notes/pi/ramanujan.html},
-  urldate = {2024-01-09}
-}
-
-@article{borwein-1989-RamanujanModularEquations,
-  title = {Ramanujan, {{Modular Equations}}, and {{Approximations}} to {{Pi}} or {{How}} to {{Compute One Billion Digits}} of {{Pi}}},
-  author = {Borwein, J. M. and Borwein, P. B. and Bailey, D. H.},
-  date = {1989},
-  journaltitle = {The American Mathematical Monthly},
-  volume = {96},
-  number = {3},
-  eprint = {2325206},
-  eprinttype = {jstor},
-  pages = {201--219},
-  publisher = {Mathematical Association of America},
-  issn = {0002-9890},
-  doi = {10.2307/2325206},
-  url = {https://www.jstor.org/stable/2325206},
-  urldate = {2024-01-09},
-  file = {C:\Users\happyZYM\Zotero\storage\ZPIVHAR8\Borwein 等 - 1989 - Ramanujan, Modular Equations, and Approximations t.pdf}
-}
-
-@article{brent-1976-FastMultiplePrecisionEvaluation,
-  title = {Fast {{Multiple-Precision Evaluation}} of {{Elementary Functions}}},
-  author = {Brent, Richard P.},
-  date = {1976-04-01},
-  journaltitle = {Journal of the ACM},
-  shortjournal = {J. ACM},
-  volume = {23},
-  number = {2},
-  pages = {242--251},
-  issn = {0004-5411},
-  doi = {10.1145/321941.321944},
-  url = {https://dl.acm.org/doi/10.1145/321941.321944},
-  urldate = {2024-01-10},
-  abstract = {Let \textflorin (x) be one of the usual elementary functions (exp, log, artan, sin, cosh, etc.), and let M(n) be the number of single-precision operations required to multiply n-bit integers. It is shown that \textflorin (x) can be evaluated, with relative error {$O$}(2-n), in {$O$}(M(n)log (n)) operations as n {$\rightarrow$} {$\infty$}, for any floating-point number x (with an n-bit fraction) in a suitable finite interval. From the Sch\"onhage-Strassen bound on M(n), it follows that an n-bit approximation to \textflorin (x) may be evaluated in {$O$}(n log2(n) log log(n)) operations. Special cases include the evaluation of constants such as {$\pi$}, e, and e{$\pi$}. The algorithms depend on the theory of elliptic integrals, using the arithmetic-geometric mean iteration and ascending Landen transformations.},
-  file = {C:\Users\happyZYM\Zotero\storage\GQ6DRVUB\Brent - 1976 - Fast Multiple-Precision Evaluation of Elementary F.pdf}
-}
-
-@online{dreamsnake-2020-YuanzhoushuaipibijiaozhumingdewuqiongjishugongshiyounaxieZhihu,
-  title = {圆周率pi比较著名的无穷级数公式有哪些？ - 知乎},
-  author = {{DreamSnake}},
-  date = {2020-07-19},
-  url = {https://www.zhihu.com/question/402311979/answer/1339659450},
-  urldate = {2024-01-09},
-  file = {C:\Users\happyZYM\Zotero\storage\IZUR49CH\1339659450.html}
-}
-
-@article{gan-2011-GuanyuYuanzhoushuaiPi,
-  title = {关于圆周率pi的数值计算的一个改进公式},
-  author = {甘, 泉},
-  date = {2011},
-  journaltitle = {中国科技信息},
-  number = {10},
-  pages = {45},
-  issn = {1001-8972},
-  url = {https://kns.cnki.net/kcms2/article/abstract?v=vdPasdvfHvtda2Di7EelCWVwubNX2BWLCcUedRmKRxpmsEiesgL7zb9BNTcIOEC2ivCTEdiI0aVUnBwUFx8lg1twdxrgXwWBNdqZWQoVrIwwwNv3efj-JQ5fsfmd5eCZ7kZyhjobkjs=&uniplatform=NZKPT&language=CHS},
-  urldate = {2024-01-09},
-  abstract = {本文给出了一个计算圆周率pi的公式,该公式是对J.Machin公式的改进。},
-  langid = {chinese},
-  keywords = {,Machin,pi},
-  file = {C:\Users\happyZYM\Zotero\storage\LZ3HJ44N\甘 - 2011 - 关于圆周率pi的数值计算的一个改进公式.pdf}
-}
-
-@book{guillera-2018-MethodProvingRamanujan,
-  title = {A Method for Proving {{Ramanujan}} Series for 1/{$\pi$}},
-  author = {Guillera, Jes\'us},
-  date = {2018-07-19},
-  abstract = {In a famous paper of \$1914\$ Ramanujan gave a list of \$17\$ extraordinary formulas for the number \$\textbackslash pi\$. In this note we explain a general method to prove them, based on an original idea of James Wan and in some own ideas.},
-  file = {C:\Users\happyZYM\Zotero\storage\8TTJU8IA\Guillera - 2018 - A method for proving Ramanujan series for 1π.pdf}
-}
-
-@article{luohongbin-2016-YuanzhoushuaiJisuanfangfaJiqi,
-  title = {圆周率的计算方法及其MATLAB编程实现},
-  author = {{罗洪斌} and {钱伟} and {马梅玲}},
-  date = {2016},
-  journaltitle = {数字技术与应用},
-  number = {8},
-  pages = {57--58},
-  issn = {1007-9416},
-  doi = {10.19695/j.cnki.cn12-1369.2016.08.045},
-  url = {https://kns.cnki.net/kcms2/article/abstract?v=vdPasdvfHvuQ9ErlaH6iszFZaDG74Qt54so3D4SHoayJSb0y8Xc6E5C6nO2yjf5bB4mJdKsT6mwD83jTGf05oEskaHnKu6U-VHa58pwK1s5hYfJ-5af4k41rnpbANRBSr3LgLawEH5fgi7ECy_4zAA==&uniplatform=NZKPT&language=CHS},
-  urldate = {2024-01-09},
-  abstract = {介绍圆周率的起源以及在各个时期的主要的近似计算方法的数学原理及代表人物,然后详细地给出古典方法、莱布尼兹(Leibniz)公式、数值积分法,三种近似计算方法的数学原理及其推导过程,并结合现代数学计算软件MATLAB编程实现算法过程,给出其运算过程及结果。并对三种计算方法进行具体分析,得到其相关结论。},
-  langid = {chinese},
-  keywords = {,MATLAB},
-  file = {C:\Users\happyZYM\Zotero\storage\SYFBWWBY\罗 等 - 2016 - 圆周率的计算方法及其MATLAB编程实现.pdf}
-}
-
-@online{michaeld.huberty-1997-100000Digits,
-  title = {100,000 {{Digits}} of {{Pi}}},
-  author = {{Michael D. Huberty} and {Ko Hayashi} and {Chia Vang}},
-  date = {1997-07-06},
-  url = {http://www.geom.uiuc.edu/~huberty/math5337/groupe/digits.html},
-  urldate = {2024-01-09}
-}
-
-@online{michaeld.huberty-1997-HistoricalOverviewPi,
-  title = {Historical {{Overview}} of {{Pi}}},
-  author = {{Michael D. Huberty} and {Ko Hayashi} and {Chia Vang}},
-  date = {1997-07-06},
-  url = {http://www.geom.uiuc.edu/~huberty/math5337/groupe/overview.html},
-  urldate = {2024-01-09},
-  file = {C:\Users\happyZYM\Zotero\storage\8RZPMTQC\overview.html}
-}
-
-@online{ronknott-2023-PiFibonacciNumbers,
-  title = {Pi and the {{Fibonacci Numbers}}},
-  author = {{Ron Knott}},
-  date = {2023-08-30},
-  url = {https://r-knott.surrey.ac.uk/Fibonacci/fibpi.html#section1.7},
-  urldate = {2024-01-10},
-  file = {C:\Users\happyZYM\Zotero\storage\ZFN44XJY\fibpi.html}
-}
-
-@incollection{salamin-2016-ComputationUsingArithmeticgeometric,
-  title = {Computation of {$\pi$} Using Arithmetic-Geometric Mean (1976)},
-  booktitle = {Pi: {{The Next Generation}}: {{A Sourcebook}} on the {{Recent History}} of {{Pi}} and {{Its Computation}}},
-  author = {Salamin, Eugene},
-  editor = {Bailey, David H. and Borwein, Jonathan M.},
-  date = {2016},
-  pages = {1--8},
-  publisher = {Springer International Publishing},
-  location = {Cham},
-  doi = {10.1007/978-3-319-32377-0_1},
-  url = {https://doi.org/10.1007/978-3-319-32377-0_1},
-  urldate = {2024-01-10},
-  abstract = {Paper 1: Eugene Salamin, ``Computation of pi using arithmetic-geometric mean,'' Mathematics of Computation, vol. 30, no. 135 (July 1976), pg. 565--570. Reprinted by permission of the American Mathematical Society.},
-  isbn = {978-3-319-32377-0},
-  langid = {english},
-  keywords = {Algorithms,Arithmetic-Geometric Mean,Computation,Elliptic Integrals},
-  file = {C\:\\Users\\happyZYM\\Zotero\\storage\\MBWKBPYU\\Computation of $_pi$ Using Arithmetic-Geometric Mean.pdf;C\:\\Users\\happyZYM\\Zotero\\storage\\QR8K8VK8\\Salamin - 2016 - Computation of π using arithmetic-geometric mean (.pdf}
-}
-
-@online{shixiangwuyan-2023-ZuchongzhiShiZenmo,
-  title = {祖冲之是怎么计算圆周率的？},
-  author = {{石像无言}},
-  date = {2023-11-05},
-  url = {https://zhuanlan.zhihu.com/p/445101862},
-  urldate = {2024-01-10},
-  abstract = {简介：如果我们按《九章算术》刘徽注文中的一个思路动手去尝试一下，就会惊奇地发现：筹算出8位圆周率并不神奇。如果祖冲之使用这个方法，那么他2天就能可靠地将圆周率重算一遍，计算量及复杂程度都远低于大家的预\dots},
-  langid = {chinese},
-  organization = {知乎专栏},
-  file = {C:\Users\happyZYM\Zotero\storage\5F5LFX47\445101862.html}
-}
-
-@article{shiyongguo-2022-JisuanYuanzhoushuaiFangfa,
-  title = {计算圆周率方法的数值实验比较},
-  author = {{石勇国} and {宋涓} and {王巧玲} and {罗小宇}},
-  date = {2022},
-  journaltitle = {高等数学研究},
-  volume = {25},
-  number = {4},
-  pages = {24--27},
-  issn = {1008-1399},
-  url = {https://kns.cnki.net/kcms2/article/abstract?v=vdPasdvfHvtTpM6qAXiSn3gOmyNHLs4OrgUJyCbdt74YnckFB3tz6ww_vfKUU5c-pYBe1sbgf40K0I-vth_yUZV3PrIt4ixJIAGk3jH2Xgqk_1UBcTWptRCB71IEtJURR9mpN-YiamnVbOufYFZHEA==&uniplatform=NZKPT&language=CHS},
-  urldate = {2024-01-09},
-  abstract = {本文用数值实验的方法对比计算圆周率两类计算方法：Ramanujan型级数和迭代算法，并分享一些有趣的观察.},
-  langid = {chinese},
-  keywords = {,Gauss-Salamin-Brent,Ramanujan},
-  file = {C:\Users\happyZYM\Zotero\storage\RDN98KEL\石勇国 等 - 2022 - 计算圆周率方法的数值实验比较.pdf}
-}
-
-@article{sun-1998-YuanzhoushuaiJisuanJianshi,
-  title = {圆周率计算简史},
-  author = {孙, 宏安},
-  date = {1998},
-  journaltitle = {中学数学教学参考},
-  number = {11},
-  pages = {49--50},
-  issn = {1002-2172},
-  url = {https://kns.cnki.net/kcms2/article/abstract?v=vdPasdvfHvu1_KpCSFzSEIx5Qp3GuQwWTfAjedXyDKyCA2DTRtW849Zbw8ENmNR9nwUv-F-Il4QukPQYl3vmRBlFnXOWn_j97H4Wh90FfEkHA3kSEtDCyhJqTJ3ME-eFL1GP5gsSpbI=&uniplatform=NZKPT&language=CHS},
-  urldate = {2024-01-09},
-  abstract = {圆周率（现在用希腊字母{$\pi$}表示）是一个非常独特的数：它是一个``存在于''自然界之中（因而在某种程度上可以说是``客观存在''）的无理数，其他无理数都是人为创造出来的．由于这一点，人们很早就开始了认识圆周率的过程，而认识其他无理数尤其是超越数则是相当晚近的事了...},
-  langid = {chinese},
-  file = {C:\Users\happyZYM\Zotero\storage\LLGXQXQF\孙 - 1998 - 圆周率计算简史.pdf}
-}
-
-@article{tu-2018-GuanyuYuanzhoushuaiP,
-  title = {关于圆周率{$\pi$}的十个表达式},
-  author = {涂, 泓 and 冯, 承天},
-  date = {2018},
-  journaltitle = {上海中学数学},
-  number = {9},
-  pages = {18-19+37},
-  issn = {1672-7495},
-  url = {https://kns.cnki.net/kcms2/article/abstract?v=vdPasdvfHvuOoruVTFTVh9oJDk4h0qaZiCHj7vdA-eXpNeATNwwJwNQITyx31CbRflA09Y-YJsWWGfqtoueIlFlBQicBTG1ak5BmyzQgZmH6C1_gonU3Sz7x5xxnrogLlg7Pi5IrVKlF7qG2eorKsg==&uniplatform=NZKPT&language=CHS},
-  urldate = {2024-01-09},
-  abstract = {笔者从圆周率{$\pi$}的定义出发,用极限、三角中的倍角和半角公式、多项式方程理论、求导与积分、麦克劳林级数以及复数的运算等工具,阐明了{$\pi$}是一个与圆半径无关的常数,并给出了{$\pi$}的乘积表达式、级数表达式等十种表达式.},
-  langid = {chinese}
+@online{yu_DAPOOpenSourceLLM_2025,
+  title = {{{DAPO}}: {{An Open-Source LLM Reinforcement Learning System}} at {{Scale}}},
+  shorttitle = {{{DAPO}}},
+  author = {Yu, Qiying and Zhang, Zheng and Zhu, Ruofei and Yuan, Yufeng and Zuo, Xiaochen and Yue, Yu and Fan, Tiantian and Liu, Gaohong and Liu, Lingjun and Liu, Xin and Lin, Haibin and Lin, Zhiqi and Ma, Bole and Sheng, Guangming and Tong, Yuxuan and Zhang, Chi and Zhang, Mofan and Zhang, Wang and Zhu, Hang and Zhu, Jinhua and Chen, Jiaze and Chen, Jiangjie and Wang, Chengyi and Yu, Hongli and Dai, Weinan and Song, Yuxuan and Wei, Xiangpeng and Zhou, Hao and Liu, Jingjing and Ma, Wei-Ying and Zhang, Ya-Qin and Yan, Lin and Qiao, Mu and Wu, Yonghui and Wang, Mingxuan},
+  date = {2025-03-18},
+  eprint = {2503.14476},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2503.14476},
+  url = {http://arxiv.org/abs/2503.14476},
+  urldate = {2025-04-05},
+  abstract = {Inference scaling empowers LLMs with unprecedented reasoning ability, with reinforcement learning as the core technique to elicit complex reasoning. However, key technical details of state-of-the-art reasoning LLMs are concealed (such as in OpenAI o1 blog and DeepSeek R1 technical report), thus the community still struggles to reproduce their RL training results. We propose the \$\textbackslash textbf\{D\}\$ecoupled Clip and \$\textbackslash textbf\{D\}\$ynamic s\$\textbackslash textbf\{A\}\$mpling \$\textbackslash textbf\{P\}\$olicy \$\textbackslash textbf\{O\}\$ptimization (\$\textbackslash textbf\{DAPO\}\$) algorithm, and fully open-source a state-of-the-art large-scale RL system that achieves 50 points on AIME 2024 using Qwen2.5-32B base model. Unlike previous works that withhold training details, we introduce four key techniques of our algorithm that make large-scale LLM RL a success. In addition, we open-source our training code, which is built on the verl framework, along with a carefully curated and processed dataset. These components of our open-source system enhance reproducibility and support future research in large-scale LLM RL.},
+  langid = {american},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning,hok1v1},
+  file = {/home/zym/Zotero/storage/CW8TEP54/Yu 等 - 2025 - DAPO An Open-Source LLM Reinforcement Learning System at Scale.pdf;/home/zym/Zotero/storage/F8PVVMCK/2503.html}
 }
