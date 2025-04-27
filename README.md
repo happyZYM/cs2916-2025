@@ -4,7 +4,7 @@
 
 # SFT
 ## short cot
-实验效果：部分指标超过shortcot sft baseline
+实验效果：部分指标超过shortcot sft baseline  
 最好的一次实验对应的训练日志：
 
 ## long cot
@@ -15,7 +15,7 @@ GSM8k acc: 0.694
 MATH500 acc: 0.408
 OlympiadBench acc: 0.138
 ```
-日志：<https://wandb.ai/zymx/cs2916-2025/runs/umndpqgo>
+日志：<https://wandb.ai/zymx/cs2916-2025/runs/umndpqgo>  
 训练参数：
 ```
 BS=128
